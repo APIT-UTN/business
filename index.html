@@ -1,0 +1,116 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>reveal.js - The HTML Presentation Framework</title>
+    <meta name="description" content="A framework for easily creating beautiful presentations using HTML">
+    <meta name="author" content="Hakim El Hattab">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="css/reveal.min.css">
+    <link rel="stylesheet" href="css/theme/apit.css" id="theme">
+    <!-- For syntax highlighting -->
+    <link rel="stylesheet" href="lib/css/zenburn.css">
+    <!-- If the query includes 'print-pdf', use the PDF print sheet -->
+    <script>
+        document.write('<link rel="stylesheet" href="css/print/' + (window.location.search.match(/print-pdf/gi) ? 'pdf' : 'paper') + '.css" type="text/css" media="print">');
+    </script>
+    <!--[if lt IE 9]>
+    <script src="lib/js/html5shiv.js"></script>
+    <![endif]-->
+</head>
+<body>
+    <div class="reveal">
+        <!-- Any section element inside of this container is displayed as a slide -->
+        <div class="slides">
+            <section>
+                <h1>Lógica de Negocio</h1>
+                <h3>Arquitectura de Proyectos IT</h3>
+                <p>
+                    <small>by <a href="http://www.juanmanuelarias.com.ar">Juan Manuel Arias</a> / <a href="http://twitter.com/juanma_ari">@juanma_ari</a></small>
+                </p>
+            </section>
+
+            <section>
+                <h2>Agenda</h2>
+                <ul>
+                    <li>Introducción</li>
+                    <li>Diseño de la Lógica de Negocio</li>
+                    <li>Arquitectura de la Lógica de Negocio</li>
+                    <li>Tipos de Arquitectura</li>
+                </ul>
+            </section>
+
+            <section>
+                <h2>¿Que es un modelo?</h2>
+                <ul>
+                    <li class="fragment">Versión simplificada de algo complejo utilizado en el análisis y resolución de problemas</li>
+                    <li class="fragment">Debe expresar un dominio y no los detalles técnicos</li>
+                </ul>
+            </section>
+
+            <section>
+                <h2>Aspectos de un Modelo</h2>
+                <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                     width="600px" height="500px" viewBox="0 0 600 500" style="enable-background:new 0 0 600 500;" xml:space="preserve">
+                <line style="fill:none;stroke:#000000;stroke-miterlimit:10;" x1="31" y1="22.853" x2="31" y2="449" />
+                <line style="fill:none;stroke:#000000;stroke-miterlimit:10;" x1="31" y1="449" x2="567.921" y2="449" />
+                <circle style="fill:#BF2026;" cx="68.511" cy="87" r="11.017" />
+                <text transform="matrix(1 0 0 1 88.7432 90.522)" style="font-family:'MyriadPro-Regular'; font-size:13pt;">Diagrama de Deploy</text>
+                <circle style="fill:#BF2026;" cx="97.511" cy="146" r="11.017" />
+                <text transform="matrix(1 0 0 1 117.7432 149.522)" style="font-family:'MyriadPro-Regular'; font-size:13pt;">Diagrama de Capas</text>
+                <circle style="fill:#9CBB59;" cx="134.511" cy="230.983" r="11.017" />
+                <text transform="matrix(1 0 0 1 154.7432 234.5054)" style="font-family: 'MyriadPro-Regular'; font-size: 13pt;">Diagrama de Clases y Secuencia</text>
+                <circle style="fill:#9CBB59;" cx="126.511" cy="299.983" r="11.017" />
+                <text transform="matrix(1 0 0 1 146.7432 303.5059)" style="font-family: 'MyriadPro-Regular'; font-size: 13pt;">Unit Tests</text>
+                <circle style="fill:#1870B9;" cx="366.296" cy="261.934" r="11.017" />
+                <text transform="matrix(1 0 0 1 386.5283 265.4551)" style="font-family: 'MyriadPro-Regular'; font-size: 13pt;">Prototypes</text>
+                <circle style="fill:#1870B9;" cx="429.707" cy="307" r="11.017" />
+                <text transform="matrix(1 0 0 1 449.9385 310.5215)" style="font-family: 'MyriadPro-Regular'; font-size: 13pt;">DSL</text>
+                <circle style="fill:#9CBB59;" cx="96.511" cy="345" r="11.017" />
+                <text transform="matrix(1 0 0 1 116.7432 348.5215)" style="font-family: 'MyriadPro-Regular'; font-size: 13pt;">C&#xF3;digo OO</text>
+                <circle style="fill:#9CBB59;" cx="68.511" cy="390" r="11.017" />
+                <text transform="matrix(1 0 0 1 88.7432 393.5215)" style="font-family: 'MyriadPro-Regular'; font-size: 13pt;">Esquema de Base de Datos</text>
+                <circle style="fill:#8165A3;" cx="381.921" cy="64.967" r="11.017" />
+                <text transform="matrix(1 0 0 1 402.1533 68.4888)" style="font-family: 'MyriadPro-Regular'; font-size: 13pt;">BPM &amp; Workflows</text>
+                <circle style="fill:#8165A3;" cx="381.921" cy="174.967" r="11.017" />
+                <text transform="matrix(1 0 0 1 402.1533 178.4888)" style="font-family: 'MyriadPro-Regular'; font-size: 13pt;">Story Tests</text>
+                <circle style="fill:#8165A3;" cx="359.921" cy="117.033" r="11.017" />
+                <text transform="matrix(1 0 0 1 380.1533 120.5552)" style="font-family: 'MyriadPro-Regular'; font-size: 13pt;">Data Examples</text>
+                <text transform="matrix(1.192488e-008 -1 1 1.192488e-008 22.1436 298.0996)" style="font-family:'MyriadPro-Regular'; font-size:18pt;">Abstracci&#xF3;n</text>
+                <text transform="matrix(1 0 0 1 47.9277 472.5703)" style="font-family: 'MyriadPro-Regular'; font-size: 18pt;">Tecnolog&#xED;a</text>
+                <text transform="matrix(1 0 0 1 475.9277 472.5703)" style="font-family: 'MyriadPro-Regular'; font-size: 18pt;">Negocio</text>
+                <polygon points="31,22.853 26.597,22.853 28.798,19.04 31,15.226 33.202,19.04 35.403,22.853 " />
+                <polygon points="567.921,448.999 567.921,444.597 571.734,446.798 575.548,448.999 571.734,451.201 567.921,453.403 " />
+                </svg>
+            </section>
+        </div>
+    </div>
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.min.js"></script>
+    <script>
+        // Full list of configuration options available here:
+        // https://github.com/hakimel/reveal.js#configuration
+        Reveal.initialize({
+            controls: true,
+            progress: true,
+            history: true,
+            center: true,
+            theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+            transition: Reveal.getQueryHash().transition || 'linear', // default/cube/page/concave/zoom/linear/fade/none
+            // Optional libraries used to extend on reveal.js
+            dependencies: [
+                { src: 'lib/js/classList.js', condition: function () { return !document.body.classList; } },
+                { src: 'plugin/markdown/marked.js', condition: function () { return !!document.querySelector('[data-markdown]'); } },
+                { src: 'plugin/markdown/markdown.js', condition: function () { return !!document.querySelector('[data-markdown]'); } },
+                { src: 'plugin/highlight/highlight.js', async: true, callback: function () { hljs.initHighlightingOnLoad(); } },
+                { src: 'plugin/zoom-js/zoom.js', async: true, condition: function () { return !!document.body.classList; } },
+                { src: 'plugin/notes/notes.js', async: true, condition: function () { return !!document.body.classList; } }
+                // { src: 'plugin/search/search.js', async: true, condition: function() { return !!document.body.classList; } }
+                // { src: 'plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
+            ]
+        });
+    </script>
+</body>
+</html>
